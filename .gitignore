@@ -1,0 +1,11 @@
+# Agentní dokumentace, plány a lokální testy — nepatří do repozitáře (MASTER-AGENTS.md).
+testing/
+
+# Lokální a systémové soubory
+.DS_Store
+Thumbs.db
+*.log
+node_modules/
+dist/
+.vscode/
+.idea/
