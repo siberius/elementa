@@ -10,6 +10,8 @@ Interaktivní 3D vizualizace periodické soustavy prvků v jediném HTML souboru
 ![License](https://img.shields.io/badge/license-MIT-green)
 ![No build](https://img.shields.io/badge/build-not%20required-lightgrey)
 
+![ELEMENTA — spatial map of the elements](screenshot.png)
+
 ---
 
 ## English
