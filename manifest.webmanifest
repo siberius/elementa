@@ -1,0 +1,20 @@
+{
+  "name": "ELEMENTA · prostorová mapa prvků",
+  "short_name": "ELEMENTA",
+  "description": "Interaktivní 3D mapa periodické soustavy: 118 prvků, 7 period, tři protínající se roviny. Pracuje i bez internetu.",
+  "lang": "cs",
+  "dir": "ltr",
+  "start_url": "./",
+  "scope": "./",
+  "id": "./",
+  "display": "standalone",
+  "display_override": ["standalone", "minimal-ui", "browser"],
+  "background_color": "#080d18",
+  "theme_color": "#080d18",
+  "categories": ["education", "science"],
+  "icons": [
+    { "src": "./icon-192.png", "sizes": "192x192", "type": "image/png", "purpose": "any" },
+    { "src": "./icon-512.png", "sizes": "512x512", "type": "image/png", "purpose": "any" },
+    { "src": "./icon-maskable-512.png", "sizes": "512x512", "type": "image/png", "purpose": "maskable" }
+  ]
+}
