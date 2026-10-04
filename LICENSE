@@ -19,3 +19,19 @@ AUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER
 LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM,
 OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE
 SOFTWARE.
+
+---
+
+## Third-party components / Komponenty třetích stran
+
+Tato licence (MIT) se vztahuje pouze na vlastní kód aplikace ELEMENTA.
+Soubor `index.html` dále obsahuje:
+
+| Komponenta | Obsah | Licence |
+|---|---|---|
+| Three.js r180, OrbitControls | 3D knihovna vložená přímo do `index.html` (© 2010–2025 autoři three.js) | MIT — <https://threejs.org/license> |
+| Periodic-Table-JSON (Bowserinator) | vložená záložní databáze 118 prvků (výběr polí) | CC BY-SA 3.0 — <https://creativecommons.org/licenses/by-sa/3.0/> |
+
+- Kód aplikace zůstává MIT; odvozená kopie dat zůstává pod CC BY-SA 3.0.
+- České názvy prvků a české překlady textů jsou vlastní data aplikace (MIT).
+- Autoři třetích stran neuvažují licenci MIT aplikace a nejsou spojeni s její podporou.

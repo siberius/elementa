@@ -56,9 +56,11 @@ available, the app tries to update the element data online.
 
 - **Element database:** [Bowserinator / Periodic-Table-JSON](https://github.com/Bowserinator/Periodic-Table-JSON)
   · [CC BY-SA 3.0](https://creativecommons.org/licenses/by-sa/3.0/).
-  Embedded backup: 118 elements (28 September 2026); data are updated online.
-- **3D library:** Three.js + OrbitControls, embedded directly in the HTML · MIT
-  (© 2010–2025 three.js authors).
+  Embedded backup: 118 elements (28 September 2026); a selection of fields from
+  the source. The Czech element names are the app’s own data. Data updates online.
+- **3D library:** Three.js r180 + OrbitControls, embedded directly in
+  `index.html` · MIT (© 2010–2025 the three.js authors ·
+  <https://threejs.org/license>).
 - **Curriculum / facts:** [IUPAC – periodic table](https://iupac.org/what-we-do/periodic-table-of-elements/).
 
 The ellipses are a map of the system, not electron trajectories. Sector sizes
@@ -125,9 +127,11 @@ k dispozici, aplikace se pokusí aktualizovat data prvků online.
 
 - **Databáze prvků:** [Bowserinator / Periodic-Table-JSON](https://github.com/Bowserinator/Periodic-Table-JSON)
   · [CC BY-SA 3.0](https://creativecommons.org/licenses/by-sa/3.0/).
-  Vložená záloha: 118 prvků (28. 9. 2026); online se data aktualizují.
-- **3D knihovna:** Three.js + OrbitControls, vložené přímo v HTML · MIT
-  (© 2010–2025 three.js authors).
+  Vložená záloha: 118 prvků (28. 9. 2026), výběr polí ze zdroje. České názvy
+  prvků jsou vlastní data aplikace. Online se data aktualizují.
+- **3D knihovna:** Three.js r180 + OrbitControls, vložené přímo do
+  `index.html` · MIT (© 2010–2025 autoři three.js ·
+  <https://threejs.org/license>).
 - **Kurikulum / fakta:** [IUPAC – periodická soustava](https://iupac.org/what-we-do/periodic-table-of-elements/).
 
 Elipsy jsou mapou soustavy, nikoli drahami elektronů. Velikosti sektorů ani
