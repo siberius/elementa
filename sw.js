@@ -1,7 +1,7 @@
 /* ELEMENTA — service worker pro offline běh a instalovatelnost.
    Verzi CACHE zvyšuj při každém vydání nového index.html, jinak mají žáci
    starou verzi v otevřených kartách a nová se „neprojeví“. */
-const CACHE = 'elementa-v2';
+const CACHE = 'elementa-v3';
 const ASSETS = [
   './',
   './index.html',
