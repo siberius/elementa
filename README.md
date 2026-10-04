@@ -69,7 +69,7 @@ elements some data are predicted.
 
 ### Author
 
-**Mgr. Luděk Sušický** — biolog, středoškolský a vysokoškolský učitel informatických předmětů
+**Luděk Sušický** — biolog, středoškolský a vysokoškolský učitel informatických předmětů
 
 - E-mail: [ludek.susicky@gmail.com](mailto:ludek.susicky@gmail.com)
 - X: [@ludeksusicky](https://x.com/ludeksusicky)
@@ -140,7 +140,7 @@ některé údaje předpovězené.
 
 ### Autor
 
-**Mgr. Luděk Sušický** — biolog, středoškolský a vysokoškolský učitel informatických předmětů
+**Luděk Sušický** — biolog, středoškolský a vysokoškolský učitel informatických předmětů
 
 - E-mail: [ludek.susicky@gmail.com](mailto:ludek.susicky@gmail.com)
 - X: [@ludeksusicky](https://x.com/ludeksusicky)
