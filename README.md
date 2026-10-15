@@ -26,6 +26,16 @@ Interaktivní 3D vizualizace periodické soustavy prvků v jediném HTML souboru
 - **Exploring relations** — highlight a period, group / series or a comparison
   pair (e.g. La ↔ Ac); guides for the group 3 convention (Sc–Y–Lu–Lr).
 - **Search** — by symbol, name or atomic number.
+- **Keyboard** — arrow keys rotate and tilt, `+` / `-` zoom, `Home` resets the view.
+- **Teaching mode** — five tasks in one panel: predict the period and block of
+  an element, a four-question Socratic check (group 3 convention, Lr with a 7p
+  electron, what the ellipses mean, how many elements period 6 has), a flat
+  periodic table, progressive hints, and a short formative summary. The panel
+  rolls up into a strip under the header so the model stays usable, and the
+  camera turns to the element once it has been identified.
+- **Flat periodic table** — the printed layout with sector-coloured sockets and
+  glossy CPK spheres that match the 3D model; type in the field above it, `Enter`
+  selects, arrow keys move between matches.
 - **Appearance settings** — colors by periods / blocks / categories, labels,
   auto-rotation, band opacity, layer spacing, unfolding the planes,
   front / top / perspective views.
@@ -97,6 +107,16 @@ their own MIT license; the adopted database remains under CC BY-SA 3.0.
 - **Objevování souvislostí** — zvýraznění periody, skupiny / řady a srovnávací
   dvojice (např. La ↔ Ac); vodítka pro konvenci skupiny 3 (Sc–Y–Lu–Lr).
 - **Vyhledávání** — podle značky, názvu nebo protonového čísla.
+- **Klávesnice** — šipky otáčejí a naklánějí, `+` / `-` přibližují, `Home`
+  vrací výchozí pohled.
+- **Režim výuky** — pět úkolů v jednom panelu: předpověď periody a bloku prvku,
+  sokratická kontrola ze čtyř otázek (konvence skupiny 3, Lr s elektronem 7p,
+  význam elips, počet prvků 6. periody), plošná periodická tabulka, postupné
+  nápovědy a krátká zpětná vazba. Panel se sroluje do lišty pod hlavičkou,
+  aby šel dál používat model, a po určení prvku se kamera natočí na jeho kouli.
+- **Plošná periodická tabulka** — tištěné rozvržení s lůžky ve fázové barvě
+  sektoru a lesklými koulemi CPK, které odpovídají 3D modelu; do pole nad
+  tabulkou se píše jako do běžné tabulky, `Enter` vybere, šipky jedou mezi nálezy.
 - **Nastavení vzhledu** — barvy podle period / bloků / kategorií, popisky,
   automatické otáčení, průsvitnost pásů, rozestup vrstev, rozložení rovin,
   pohledy zepředu / shora / perspektiva.
