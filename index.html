@@ -4163,34 +4163,25 @@ var mb=/android|iphone|ipad|ipod|mobile/i.test(navigator.userAgent),ip=null,iu=/
   var screenX = (p.x + 1) * Qt.clientWidth / 2;
   var screenY = (1 - p.y) * Qt.clientHeight / 2;
   
-  var results = [];
-  var testPoints = [
-    { name: "Bi center", dx: 0, dy: 0 },
-    { name: "Bi right +30", dx: 30, dy: 0 },
-    { name: "Bi right +60", dx: 60, dy: 0 },
-    { name: "Bi top-right +40 -20", dx: 40, dy: -20 },
-    { name: "Bi bottom-right +40 +20", dx: 40, dy: 20 }
-  ];
-  
-  for (var pt of testPoints) {
-    var sx = screenX + pt.dx;
-    var sy = screenY + pt.dy;
-    var ndc = new te((sx / Qt.clientWidth) * 2 - 1, -(sy / Qt.clientHeight) * 2 + 1);
-    gd.setFromCamera(ndc, ft);
-    var allMeshes = [];
-    Wr.traverse(function(o) { if (o.isMesh && o.visible) allMeshes.push(o); });
-    var hits = gd.intersectObjects(allMeshes, false);
-    results.push({
-      name: pt.name,
-      hits: hits.map(h => ({
-        dist: h.distance.toFixed(3),
-        sym: h.object.userData && h.object.userData.number ? (en.find(e => e.number === h.object.userData.number) || {}).symbol : "NO_SYM",
-        num: h.object.userData ? h.object.userData.number : null,
-        geom: h.object.geometry ? h.object.geometry.type : null
-      }))
-    });
-  }
-  return { screenX: screenX, screenY: screenY, results: results };
+  var sx = screenX + 40;
+  var sy = screenY;
+  var ndc = new te((sx / Qt.clientWidth) * 2 - 1, -(sy / Qt.clientHeight) * 2 + 1);
+  gd.setFromCamera(ndc, ft);
+  var allMeshes = [];
+  Wr.traverse(function(o) { if (o.isMesh && o.visible) allMeshes.push(o); });
+  var hits = gd.intersectObjects(allMeshes, false);
+  return hits.map(h => ({
+    dist: h.distance,
+    radius: h.object.geometry.parameters ? h.object.geometry.parameters.radius : null,
+    geomType: h.object.geometry ? h.object.geometry.type : null,
+    color: h.object.material.color ? h.object.material.color.getHexString() : null,
+    opacity: h.object.material.opacity,
+    transparent: h.object.material.transparent,
+    visible: h.object.visible,
+    num: h.object.userData ? h.object.userData.number : null,
+    parentType: h.object.parent ? h.object.parent.type : null,
+    pos: h.object.getWorldPosition(new A())
+  }));
 };window.__getDebugState=()=>{
 var v=[];Wr.traverse(function(o){if(o.visible&&o.geometry&&o.type!=="Sprite")v.push({t:o.type,g:o.geometry.type,p:o.parent?o.parent.type:"",n:o.geometry.attributes.position?o.geometry.attributes.position.count:0})});
 return{sphereT,targetViewMode,totalVis:v.length,samples:v.slice(0,10),globeMeshes:globeGroup?globeGroup.children.map(c=>({t:c.type,g:c.geometry.type,vis:c.visible})):[]};
