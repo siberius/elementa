@@ -4123,9 +4123,10 @@ var spkD2=new At(diagGeom,starSpikeMat);spkD2.scale.set(15,15,1);spkD2.rotation.
 starGroup.add(starSpikeGroup);
 globeGroup.add(starGroup);
 globeGroup.visible=!1;Wr.add(globeGroup);
+window.starGroup=starGroup;window.starCoreMat=starCoreMat;
 }
 function buildTablePlanesGroup(){
-if(tablePlanesGroup){Wr.remove(tablePlanesGroup);tableTileMeshList=[]}
+if(tablePlanesGroup){Wr.remove(tablePlanesGroup);tableTileMeshList.length=0}
 tablePlanesGroup=new pn;
 if(!tableTileGeom){
 var sh=createTileShape(.74,.78,.08,.268);
@@ -4152,6 +4153,7 @@ tableTileMeshList.push({mesh:mesh,edge:edge,el:el,d:d});
 }
 tablePlanesGroup.visible=!1;
 Wr.add(tablePlanesGroup);
+window.tableTileMeshList=tableTileMeshList;
 }
 function updateTablePeriodPills(){
 var pills=document.querySelectorAll(".t-pill");
@@ -4211,6 +4213,7 @@ ln();
 var searchInput=ie("tableSearchInput"),searchClear=ie("tableSearchClear");
 if(searchInput){
 searchInput.oninput=function(){apply3dTableSearch(searchInput.value)};
+searchInput.addEventListener("input",function(){apply3dTableSearch(searchInput.value)});
 searchInput.onkeydown=function(e){
 if(e.key==="Enter"){
 var hits=apply3dTableSearch(searchInput.value);
