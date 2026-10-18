@@ -4155,7 +4155,43 @@ var btnIn=ie("btnInsideToggle");if(btnIn)btnIn.onclick=toggleInsideOutside;
 function TeInit(){setupMobileErgonomics();ie("teachBtn").onclick=TeOpen;ie("teachToggle").onclick=function(){TeTop(!ie("teachModal").classList.contains("top"))};ie("teachClose").onclick=function(){TeClose(!0)};ie("teachScrim").onclick=function(){TeClose(!0)};ie("flatClose").onclick=function(){TeFlat(false)};document.querySelectorAll("[data-tm]").forEach(function(b){b.onclick=function(){TeRender(b.dataset.tm)}});addEventListener("keydown",function(e){if(e.key==="Escape"&&!ie("teachModal").hidden){TeClose(!0);e.stopPropagation()}});addEventListener("resize",function(){!ie("flat").hidden&&TePlanes()})}
 function TeNote(n){TeE.add(n);var t=TeEl(n);if(t){TeP.add(t.period);TeB.add(t.block)}}
 
-var mb=/android|iphone|ipad|ipod|mobile/i.test(navigator.userAgent),ip=null,iu=/iphone|ipad|ipod/i.test(navigator.userAgent)&&matchMedia("(display-mode: standalone)").matches===!1;function up(){ie("install").hidden=!mb;if(!mb)return;ie("installTitle").textContent=Xe("Nainstalovat na plochu","Install on the home screen"),ie("installNote").textContent=Xe("Aplikace funguje i bez internetu.","The app also works offline."),ie("installBtn").hidden=!ip,ie("installSteps").hidden=!iu;for(let i=0;i<4;i++)ie("installSteps").children[i].firstChild.textContent=Xe(["Otevřete v Safari stránku s aplikací.","Klepněte na tlačítko Sdílet.","Zvolte Přidat na plochu.","Potvrďte Přidat."][i],["Open the app page in Safari.","Tap the Share button.","Choose Add to Home Screen.","Confirm Add."][i])}addEventListener("beforeinstallprompt",e=>{mb&&(e.preventDefault(),ip=e,up())});addEventListener("appinstalled",()=>{ip=null,up()});ie("installBtn").onclick=async()=>{if(ip){let e=ip;ip=null,up();e.prompt();await e.userChoice;return}ie("installSteps").hidden=!ie("installSteps").hidden};up();TeInit();if("serviceWorker" in navigator&&/^https?:$/.test(location.protocol))addEventListener("load",()=>{navigator.serviceWorker.register("sw.js").catch(()=>{})});bx();var kd=new AbortController,Sx=setTimeout(()=>kd.abort(),12e3);fetch("https://cdn.jsdelivr.net/gh/Bowserinator/Periodic-Table-JSON@master/PeriodicTableJSON.json",{signal:kd.signal}).then(i=>{if(!i.ok)throw Error("HTTP "+i.status);return i.json()}).then(i=>{let e=i.elements?.filter(t=>t.number>=1&&t.number<=118);if(!Ad(e))throw Error("Kontrola \xFAplnosti nebo elektron\u016F selhala");en=e,Zc="online datab\xE1ze",Bd(),cl(),it&&Bi(it.number,!1)}).catch(()=>{ie("databaseStatus").textContent=Xe("Online zdroj nen\xED dostupn\xFD. Pou\u017E\xEDv\xE1 se \xFApln\xE1 vlo\u017Een\xE1 datab\xE1ze 118 prvk\u016F.","The online source is unavailable. Using the complete embedded database of 118 elements.")}).finally(()=>{clearTimeout(Sx),ln()});window.Bi=Bi;window.dl=dl;window.TeFlat=TeFlat;window.setSheetSnap=setSheetSnap;window.setFlatBlockFilter=setFlatBlockFilter;window.setViewMode=setViewMode;window.toggleInsideOutside=toggleInsideOutside;window.__yn=yn;window.__scene=Wr;window.__getDebugState=()=>{
+var mb=/android|iphone|ipad|ipod|mobile/i.test(navigator.userAgent),ip=null,iu=/iphone|ipad|ipod/i.test(navigator.userAgent)&&matchMedia("(display-mode: standalone)").matches===!1;function up(){ie("install").hidden=!mb;if(!mb)return;ie("installTitle").textContent=Xe("Nainstalovat na plochu","Install on the home screen"),ie("installNote").textContent=Xe("Aplikace funguje i bez internetu.","The app also works offline."),ie("installBtn").hidden=!ip,ie("installSteps").hidden=!iu;for(let i=0;i<4;i++)ie("installSteps").children[i].firstChild.textContent=Xe(["Otevřete v Safari stránku s aplikací.","Klepněte na tlačítko Sdílet.","Zvolte Přidat na plochu.","Potvrďte Přidat."][i],["Open the app page in Safari.","Tap the Share button.","Choose Add to Home Screen.","Confirm Add."][i])}addEventListener("beforeinstallprompt",e=>{mb&&(e.preventDefault(),ip=e,up())});addEventListener("appinstalled",()=>{ip=null,up()});ie("installBtn").onclick=async()=>{if(ip){let e=ip;ip=null,up();e.prompt();await e.userChoice;return}ie("installSteps").hidden=!ie("installSteps").hidden};up();TeInit();if("serviceWorker" in navigator&&/^https?:$/.test(location.protocol))addEventListener("load",()=>{navigator.serviceWorker.register("sw.js").catch(()=>{})});bx();var kd=new AbortController,Sx=setTimeout(()=>kd.abort(),12e3);fetch("https://cdn.jsdelivr.net/gh/Bowserinator/Periodic-Table-JSON@master/PeriodicTableJSON.json",{signal:kd.signal}).then(i=>{if(!i.ok)throw Error("HTTP "+i.status);return i.json()}).then(i=>{let e=i.elements?.filter(t=>t.number>=1&&t.number<=118);if(!Ad(e))throw Error("Kontrola \xFAplnosti nebo elektron\u016F selhala");en=e,Zc="online datab\xE1ze",Bd(),cl(),it&&Bi(it.number,!1)}).catch(()=>{ie("databaseStatus").textContent=Xe("Online zdroj nen\xED dostupn\xFD. Pou\u017E\xEDv\xE1 se \xFApln\xE1 vlo\u017Een\xE1 datab\xE1ze 118 prvk\u016F.","The online source is unavailable. Using the complete embedded database of 118 elements.")}).finally(()=>{clearTimeout(Sx),ln()});window.Bi=Bi;window.dl=dl;window.TeFlat=TeFlat;window.setSheetSnap=setSheetSnap;window.setFlatBlockFilter=setFlatBlockFilter;window.setViewMode=setViewMode;window.toggleInsideOutside=toggleInsideOutside;window.__yn=yn;window.__scene=Wr;window.__raycastBi = function() {
+  var bi = yn.find(x => x.e.symbol === "Bi");
+  var p = new A();
+  bi.atom.getWorldPosition(p);
+  p.project(ft);
+  var screenX = (p.x + 1) * Qt.clientWidth / 2;
+  var screenY = (1 - p.y) * Qt.clientHeight / 2;
+  
+  var results = [];
+  var testPoints = [
+    { name: "Bi center", dx: 0, dy: 0 },
+    { name: "Bi right +30", dx: 30, dy: 0 },
+    { name: "Bi right +60", dx: 60, dy: 0 },
+    { name: "Bi top-right +40 -20", dx: 40, dy: -20 },
+    { name: "Bi bottom-right +40 +20", dx: 40, dy: 20 }
+  ];
+  
+  for (var pt of testPoints) {
+    var sx = screenX + pt.dx;
+    var sy = screenY + pt.dy;
+    var ndc = new te((sx / Qt.clientWidth) * 2 - 1, -(sy / Qt.clientHeight) * 2 + 1);
+    gd.setFromCamera(ndc, ft);
+    var allMeshes = [];
+    Wr.traverse(function(o) { if (o.isMesh && o.visible) allMeshes.push(o); });
+    var hits = gd.intersectObjects(allMeshes, false);
+    results.push({
+      name: pt.name,
+      hits: hits.map(h => ({
+        dist: h.distance.toFixed(3),
+        sym: h.object.userData && h.object.userData.number ? (en.find(e => e.number === h.object.userData.number) || {}).symbol : "NO_SYM",
+        num: h.object.userData ? h.object.userData.number : null,
+        geom: h.object.geometry ? h.object.geometry.type : null
+      }))
+    });
+  }
+  return { screenX: screenX, screenY: screenY, results: results };
+};window.__getDebugState=()=>{
 var v=[];Wr.traverse(function(o){if(o.visible&&o.geometry&&o.type!=="Sprite")v.push({t:o.type,g:o.geometry.type,p:o.parent?o.parent.type:"",n:o.geometry.attributes.position?o.geometry.attributes.position.count:0})});
 return{sphereT,targetViewMode,totalVis:v.length,samples:v.slice(0,10),globeMeshes:globeGroup?globeGroup.children.map(c=>({t:c.type,g:c.geometry.type,vis:c.visible})):[]};
 };})();
