@@ -4413,13 +4413,25 @@ function TeHandleElementClick(t){
 }
 
 function TeRenderFlat(){
-  ie("teachModeLabel").textContent=TeTr("Plochá tabulka","Flat periodic table");
-  ie("teachBody").innerHTML='<div class="teach-mission-box" style="padding:4px 6px;margin:0;">'
-    +'<div class="teach-q-main" style="font-size:12px;margin:0;color:#9ec8e8;display:flex;align-items:center;gap:6px;">'
-      +'<svg class="icon" viewBox="0 0 24 24" style="width:14px;height:14px;fill:none;stroke:#89d9fd;stroke-width:2;flex-shrink:0;"><rect x="3" y="3" width="18" height="18" rx="3"/><path d="M3 9h18M3 15h18M9 3v18M15 3v18"/></svg>'
-      +TeTr("2D tabulka otevřena · Klepnutím na prvek zaostříte atom v 3D","2D table open · Tap any element to focus atom in 3D")
+  ie("teachModeLabel").textContent=TeTr("3D Periodická tabulka","3D Periodic Table");
+  ie("teachBody").innerHTML='<div class="teach-mission-box" style="padding:10px 14px;margin:0;">'
+    +'<div class="teach-q-main" style="font-size:13px;margin:0 0 8px 0;color:#cde9ff;display:flex;align-items:center;gap:8px;">'
+      +'<svg class="icon" viewBox="0 0 24 24" style="width:16px;height:16px;fill:none;stroke:#89d9fd;stroke-width:2;flex-shrink:0;"><rect x="3" y="3" width="18" height="18" rx="3"/><path d="M3 9h18M3 15h18M9 3v18M15 3v18"/></svg>'
+      +'<strong>'+TeTr("3D Periodická soustava prvků","3D Periodic Table of Elements")+'</strong>'
+    +'</div>'
+    +'<div style="font-size:12px;color:rgba(200,230,255,0.85);line-height:1.45;margin-bottom:12px;">'
+      +TeTr("Prostorové zobrazení standardní tabulky IUPAC. Využijte filtry period (1–7) v horní liště nebo okamžité vyhledávání. Klepnutím na libovolný prvek zobrazíte detailní kartu.","Spatial rendering of standard IUPAC table. Use the period filters (1–7) or instant search above. Click any element to inspect its full atomic properties.")
+    +'</div>'
+    +'<div class="teach-action-bar" style="margin-top:8px;gap:8px;">'
+      +'<button type="button" class="teach-action-btn btn-accent" id="teBackZsFromTable">'+TeTr("Zpět k misím ZŠ","Back to Primary missions")+'</button>'
+      +'<button type="button" class="teach-action-btn btn-accent" id="teBackSsFromTable">'+TeTr("Zpět k misím SŠ","Back to Secondary missions")+'</button>'
+      +'<button type="button" class="teach-action-btn" id="teCloseTable">'+TeTr("Prohlížet celou tabulku","Inspect full table")+'</button>'
     +'</div>'
   +'</div>';
+  var bZs=ie("teBackZsFromTable"),bSs=ie("teBackSsFromTable"),bCl=ie("teCloseTable");
+  if(bZs)bZs.onclick=function(){TeRender("zs")};
+  if(bSs)bSs.onclick=function(){TeRender("ss")};
+  if(bCl)bCl.onclick=function(){TeClose(!0)};
 }
 
 function TeRenderStats(){
@@ -4476,7 +4488,18 @@ function TeFind(q){var g=ie("flatGrid"),v=Cs(String(q||"").trim()),m=[];TeHit=0;
  m.sort(function(a,b){return a[0]-b[0]||a[1]-b[1]}).forEach(function(x){var c=g.querySelector('[data-n="'+x[1]+'"]');c&&c.classList.add("is-hit")});
  ie("flatCount").textContent=m.length?TeTr(m.length+" z 118",m.length+" of 118"):TeTr("nenalezeno","not found")}
 function TeSync2(){var g=ie("flatGrid");if(!g.childElementCount)return;g.querySelectorAll(".is-sel").forEach(function(x){x.classList.remove("is-sel")});if(it){var x=g.querySelector('[data-n="'+it.number+'"]');if(x)x.classList.add("is-sel")}}
-function TeFlat(open){ie("flat").hidden=!open;TeGrid();var bFlat=document.querySelector('[data-tm="flat"]');if(bFlat)bFlat.setAttribute("aria-pressed",String(open));if(open){TeF=1;TeSync2();if(!ie("teachModal").hidden)TeTop(!0)}}
+function TeFlat(open){
+  if(open){
+    setViewMode("table");
+    var bFlat=document.querySelector('[data-tm="flat"]');
+    if(bFlat)bFlat.setAttribute("aria-pressed","true");
+    if(!ie("teachModal").hidden)TeTop(!0);
+  }else{
+    setViewMode("ellipses");
+    var bFlat=document.querySelector('[data-tm="flat"]');
+    if(bFlat)bFlat.setAttribute("aria-pressed","false");
+  }
+}
 function TeRender(m){
   var prevTm = TeLast;
   TeLast=m||TeLast||"zs";
@@ -4491,7 +4514,7 @@ function TeRender(m){
     TeLevel=TeLast;
     TeRenderMission();
   } else if(TeLast==="flat"){
-    TeFlat(!0);
+    setViewMode("table");
     TeTop(!0);
     TeRenderFlat();
   } else if(TeLast==="stats"){
@@ -4509,7 +4532,7 @@ function TeOpen(){
 
 function TeClose(close){
   if(close!==!0){TeOpen();return}
-  TeFlat(!1);
+  if(targetViewMode==="table"&&TeLast==="flat"){setViewMode("ellipses")}
   ie("teachModal").hidden=!0;
   ie("teachScrim").hidden=!0;
   document.body.classList.remove("teaching");
@@ -4536,8 +4559,27 @@ document.querySelectorAll(".flat-filter").forEach(function(b){b.onclick=function
 var tbSearch=ie("tbSearch"),tbView=ie("tbView"),tbFlat=ie("tbFlat"),tbTeach=ie("tbTeach"),tbMenu=ie("tbMenu");
 if(tbSearch)tbSearch.onclick=function(){In(!0);setTimeout(()=>ie("search").focus(),120)};
 var viewIdx=0;
-if(tbView)tbView.onclick=function(){var views=[()=>ie("resetMenu").click(),()=>ie("viewFront").click(),()=>ie("viewTop").click()];viewIdx=(viewIdx+1)%views.length;views[viewIdx]()};
-if(tbFlat)tbFlat.onclick=function(){TeFlat(ie("flat").hidden)};
+if(tbView)tbView.onclick=function(){
+  if(targetViewMode==="table"){
+    var isFront = Math.abs(ft.position.x) < 0.2;
+    if(isFront){
+      ul(new A(6.5,4.2,13.8),new A(0,-.6,0),.7);
+    } else {
+      ul(new A(0,-.6,15.2),new A(0,-.6,0),.7);
+    }
+  } else {
+    var views=[()=>ie("resetMenu").click(),()=>ie("viewFront").click(),()=>ie("viewTop").click()];
+    viewIdx=(viewIdx+1)%views.length;
+    views[viewIdx]();
+  }
+};
+if(tbFlat)tbFlat.onclick=function(){
+  if(targetViewMode==="table"){
+    setViewMode("ellipses");
+  } else {
+    setViewMode("table");
+  }
+};
 if(tbTeach)tbTeach.onclick=function(){ie("teachBtn").click()};
 if(tbMenu)tbMenu.onclick=function(){In(!ie("menu").classList.contains("open"))};
 [ie("detail"),ie("flat"),ie("menu"),ie("thumbBar"),ie("teachModal")].forEach(function(el){if(el){el.addEventListener("pointerdown",function(e){e.stopPropagation()});el.addEventListener("touchstart",function(e){e.stopPropagation()},{passive:!0})}});
