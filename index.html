@@ -3976,25 +3976,25 @@ return{pos:pos,norm:pos.clone().normalize()};
 function buildGlobeGroup(){
 if(globeGroup){Wr.remove(globeGroup);periodRings=[];meridianRings=[]}
 globeGroup=new pn;
-var gGeom=new Er(6.2,48,36);
-globeMat=new Si({color:1321020,transparent:!0,opacity:0,roughness:.12,metalness:.18,side:Kt,depthWrite:!1});
+var gGeom=new Er(6.2,36,24);
+globeMat=new Si({color:926776,transparent:!0,opacity:0,roughness:.1,metalness:.2,side:Kt,depthWrite:!1});
 globeGroup.add(new At(gGeom,globeMat));
 for(var p=1;p<=7;p++){
 var th0=p*(Math.PI/8.0),y0=6.2*Math.cos(th0),r0=6.2*Math.sin(th0);
-var rGeom=new dr(Math.max(.1,r0-.065),r0+.065,80);
+var rGeom=new Tr(r0,.024,8,64);
 rGeom.rotateX(-Math.PI/2);rGeom.translate(0,y0,0);
-var rMat=new Si({color:Md[p-1],emissive:Md[p-1],emissiveIntensity:.85,transparent:!0,opacity:0,side:Kt,depthWrite:!1});
+var rMat=new Si({color:Md[p-1],emissive:Md[p-1],emissiveIntensity:.9,transparent:!0,opacity:0,depthWrite:!1});
 var rMesh=new At(rGeom,rMat);periodRings.push(rMesh);globeGroup.add(rMesh);
 }
 for(var m=0;m<4;m++){
-var mGeom=new dr(6.14,6.26,80);mGeom.rotateY(m*(Math.PI/4.0));
-var mMat=new Si({color:5290218,emissive:5290218,emissiveIntensity:.45,transparent:!0,opacity:0,side:Kt,depthWrite:!1});
+var mGeom=new Tr(6.2,.015,8,64);mGeom.rotateY(m*(Math.PI/4.0));
+var mMat=new Si({color:5290218,emissive:5290218,emissiveIntensity:.5,transparent:!0,opacity:0,depthWrite:!1});
 var mMesh=new At(mGeom,mMat);meridianRings.push(mMesh);globeGroup.add(mMesh);
 }
-var coreGeom=new Er(.18,24,24);
-coreMat=new Si({color:8964351,emissive:3718648,emissiveIntensity:.95,transparent:!0,opacity:0});
+var coreGeom=new Er(.18,20,20);
+coreMat=new Si({color:8964351,emissive:3718648,emissiveIntensity:1,transparent:!0,opacity:0});
 globeGroup.add(new At(coreGeom,coreMat));
-var haloGeom=new dr(.22,.28,32);haloMat=new Si({color:8964351,emissive:8964351,emissiveIntensity:.7,transparent:!0,opacity:0,side:Kt,depthWrite:!1});
+var haloGeom=new Tr(.28,.012,8,32);haloMat=new Si({color:8964351,emissive:8964351,emissiveIntensity:.8,transparent:!0,opacity:0,depthWrite:!1});
 globeGroup.add(new At(haloGeom,haloMat));
 globeGroup.visible=!1;Wr.add(globeGroup);
 }
@@ -4155,5 +4155,8 @@ var btnIn=ie("btnInsideToggle");if(btnIn)btnIn.onclick=toggleInsideOutside;
 function TeInit(){setupMobileErgonomics();ie("teachBtn").onclick=TeOpen;ie("teachToggle").onclick=function(){TeTop(!ie("teachModal").classList.contains("top"))};ie("teachClose").onclick=function(){TeClose(!0)};ie("teachScrim").onclick=function(){TeClose(!0)};ie("flatClose").onclick=function(){TeFlat(false)};document.querySelectorAll("[data-tm]").forEach(function(b){b.onclick=function(){TeRender(b.dataset.tm)}});addEventListener("keydown",function(e){if(e.key==="Escape"&&!ie("teachModal").hidden){TeClose(!0);e.stopPropagation()}});addEventListener("resize",function(){!ie("flat").hidden&&TePlanes()})}
 function TeNote(n){TeE.add(n);var t=TeEl(n);if(t){TeP.add(t.period);TeB.add(t.block)}}
 
-var mb=/android|iphone|ipad|ipod|mobile/i.test(navigator.userAgent),ip=null,iu=/iphone|ipad|ipod/i.test(navigator.userAgent)&&matchMedia("(display-mode: standalone)").matches===!1;function up(){ie("install").hidden=!mb;if(!mb)return;ie("installTitle").textContent=Xe("Nainstalovat na plochu","Install on the home screen"),ie("installNote").textContent=Xe("Aplikace funguje i bez internetu.","The app also works offline."),ie("installBtn").hidden=!ip,ie("installSteps").hidden=!iu;for(let i=0;i<4;i++)ie("installSteps").children[i].firstChild.textContent=Xe(["Otevřete v Safari stránku s aplikací.","Klepněte na tlačítko Sdílet.","Zvolte Přidat na plochu.","Potvrďte Přidat."][i],["Open the app page in Safari.","Tap the Share button.","Choose Add to Home Screen.","Confirm Add."][i])}addEventListener("beforeinstallprompt",e=>{mb&&(e.preventDefault(),ip=e,up())});addEventListener("appinstalled",()=>{ip=null,up()});ie("installBtn").onclick=async()=>{if(ip){let e=ip;ip=null,up();e.prompt();await e.userChoice;return}ie("installSteps").hidden=!ie("installSteps").hidden};up();TeInit();if("serviceWorker" in navigator&&/^https?:$/.test(location.protocol))addEventListener("load",()=>{navigator.serviceWorker.register("sw.js").catch(()=>{})});bx();var kd=new AbortController,Sx=setTimeout(()=>kd.abort(),12e3);fetch("https://cdn.jsdelivr.net/gh/Bowserinator/Periodic-Table-JSON@master/PeriodicTableJSON.json",{signal:kd.signal}).then(i=>{if(!i.ok)throw Error("HTTP "+i.status);return i.json()}).then(i=>{let e=i.elements?.filter(t=>t.number>=1&&t.number<=118);if(!Ad(e))throw Error("Kontrola \xFAplnosti nebo elektron\u016F selhala");en=e,Zc="online datab\xE1ze",Bd(),cl(),it&&Bi(it.number,!1)}).catch(()=>{ie("databaseStatus").textContent=Xe("Online zdroj nen\xED dostupn\xFD. Pou\u017E\xEDv\xE1 se \xFApln\xE1 vlo\u017Een\xE1 datab\xE1ze 118 prvk\u016F.","The online source is unavailable. Using the complete embedded database of 118 elements.")}).finally(()=>{clearTimeout(Sx),ln()});window.Bi=Bi;window.dl=dl;window.TeFlat=TeFlat;window.setSheetSnap=setSheetSnap;window.setFlatBlockFilter=setFlatBlockFilter;window.setViewMode=setViewMode;window.toggleInsideOutside=toggleInsideOutside;window.__getDebugState=()=>({sphereT,targetViewMode,mesh0Vis:yn[0].mesh.visible,globeGroupVis:globeGroup?globeGroup.visible:null,camDist:ft.position.distanceTo(qe.target)});})();
+var mb=/android|iphone|ipad|ipod|mobile/i.test(navigator.userAgent),ip=null,iu=/iphone|ipad|ipod/i.test(navigator.userAgent)&&matchMedia("(display-mode: standalone)").matches===!1;function up(){ie("install").hidden=!mb;if(!mb)return;ie("installTitle").textContent=Xe("Nainstalovat na plochu","Install on the home screen"),ie("installNote").textContent=Xe("Aplikace funguje i bez internetu.","The app also works offline."),ie("installBtn").hidden=!ip,ie("installSteps").hidden=!iu;for(let i=0;i<4;i++)ie("installSteps").children[i].firstChild.textContent=Xe(["Otevřete v Safari stránku s aplikací.","Klepněte na tlačítko Sdílet.","Zvolte Přidat na plochu.","Potvrďte Přidat."][i],["Open the app page in Safari.","Tap the Share button.","Choose Add to Home Screen.","Confirm Add."][i])}addEventListener("beforeinstallprompt",e=>{mb&&(e.preventDefault(),ip=e,up())});addEventListener("appinstalled",()=>{ip=null,up()});ie("installBtn").onclick=async()=>{if(ip){let e=ip;ip=null,up();e.prompt();await e.userChoice;return}ie("installSteps").hidden=!ie("installSteps").hidden};up();TeInit();if("serviceWorker" in navigator&&/^https?:$/.test(location.protocol))addEventListener("load",()=>{navigator.serviceWorker.register("sw.js").catch(()=>{})});bx();var kd=new AbortController,Sx=setTimeout(()=>kd.abort(),12e3);fetch("https://cdn.jsdelivr.net/gh/Bowserinator/Periodic-Table-JSON@master/PeriodicTableJSON.json",{signal:kd.signal}).then(i=>{if(!i.ok)throw Error("HTTP "+i.status);return i.json()}).then(i=>{let e=i.elements?.filter(t=>t.number>=1&&t.number<=118);if(!Ad(e))throw Error("Kontrola \xFAplnosti nebo elektron\u016F selhala");en=e,Zc="online datab\xE1ze",Bd(),cl(),it&&Bi(it.number,!1)}).catch(()=>{ie("databaseStatus").textContent=Xe("Online zdroj nen\xED dostupn\xFD. Pou\u017E\xEDv\xE1 se \xFApln\xE1 vlo\u017Een\xE1 datab\xE1ze 118 prvk\u016F.","The online source is unavailable. Using the complete embedded database of 118 elements.")}).finally(()=>{clearTimeout(Sx),ln()});window.Bi=Bi;window.dl=dl;window.TeFlat=TeFlat;window.setSheetSnap=setSheetSnap;window.setFlatBlockFilter=setFlatBlockFilter;window.setViewMode=setViewMode;window.toggleInsideOutside=toggleInsideOutside;window.__getDebugState=()=>{
+var v=[];Wr.traverse(function(o){if(o.visible&&o.geometry&&o.type!=="Sprite")v.push({t:o.type,g:o.geometry.type,p:o.parent?o.parent.type:"",n:o.geometry.attributes.position?o.geometry.attributes.position.count:0})});
+return{sphereT,targetViewMode,totalVis:v.length,samples:v.slice(0,10),globeMeshes:globeGroup?globeGroup.children.map(c=>({t:c.type,g:c.geometry.type,vis:c.visible})):[]};
+};})();
 </script></body></html>
