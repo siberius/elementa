@@ -6,3 +6,6 @@ Při vytvoření či úpravě funkce instalace aplikace na plochu mobilu je **po
 2. **Zákaz duplicit v kořeni:** V kořenovém adresáři se **neudržují žádné duplikáty PNG/SVG ikon**. Z grafických assetů smí být v kořeni pouze `favicon.ico` (pro kompatibilitu starých crawlerů a prohlížečů, které nečtou `<link>`) a autoritativní `manifest.webmanifest` / `manifest.json` (odkazující na `icons/...`).
 3. **Propojení v HTML a Service Workeru:** V `index.html` a `sw.js` tagy a cache směřují na `icons/...`.
 4. **Offline záloha:** Pro zajištění funkčnosti bez serveru se v HTML doporučuje zachovávat inline Data URI záloha pro SVG ikonu.
+
+## Automatické odsouhlasení v Antigravity
+Při navrhování, úpravách kódu i plánech automaticky pokračuj přímo v implementaci bez vyžadování ručního mezikrokového schvalování (`RequestFeedback: false`). Všechny kroky prováděj přímo, plynule a autonomně.
