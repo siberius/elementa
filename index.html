@@ -108,7 +108,14 @@ body.teaching .headnote{opacity:0;transform:translateY(-12px);transition:opacity
 .teach-launch-btn{width:100%;display:flex;align-items:center;justify-content:center;gap:8px;padding:10px 16px;border-radius:9px;background:linear-gradient(135deg,#1e3c72,#2a5298);border:1px solid rgba(137,217,253,.35);color:#ffffff;font-size:13px;font-weight:600;cursor:pointer;box-shadow:0 4px 14px rgba(0,0,0,.25);transition:all .2s ease}
 .teach-launch-btn:hover{background:linear-gradient(135deg,#234888,#3262b5);border-color:#89d9fd;transform:translateY(-1px);box-shadow:0 6px 18px rgba(33,150,243,.3)}
 .modal-layer.top .teach-tabs{display:none}
-.modal-layer.top .teach-card{width:min(900px,96vw);padding:10px 14px}
+.modal-layer.top .teach-card{width:min(820px,94vw);padding:8px 16px;border-radius:14px;box-shadow:0 12px 38px rgba(0,0,0,.5),inset 0 1px rgba(255,255,255,.1)}
+.modal-layer.top .teach-action-bar{gap:6px}
+.modal-layer.top .teach-action-btn{padding:5px 11px;font-size:11.5px}
+@media(max-width:760px){
+  .modal-layer.top{padding:72px 8px 0}
+  .modal-layer.top .teach-card{width:100%;padding:8px 10px}
+  .teach-tabs{grid-template-columns:repeat(2,1fr)}
+}
 .modal-layer.top .teach-mission-box{padding:6px 8px;border:none;background:none;box-shadow:none}
 .modal-layer.top .teach-mission-meta{margin-bottom:4px;gap:8px}
 .modal-layer.top .teach-q-main{font-size:13px;margin:0 0 4px}
@@ -4171,7 +4178,7 @@ function TeHandleElementClick(t){
     TeSolved[TeLevel].add(idx);
     TeLastFeedback={
       ok:true,
-      msg:'<strong>🎉 '+TeTr("Správně! Vybrán prvek ","Correct! Selected element ")+t.name+' ('+t.symbol+', Z='+t.number+')</strong><div style="margin-top:6px;">'+TeTr(item.exp[0],item.exp[1])+'</div>'
+      msg:'<strong>🎉 '+TeTr("Správně! Vybrán prvek ","Correct! Selected element ")+Gr(t)+' ('+t.symbol+', Z='+t.number+')</strong><div style="margin-top:6px;">'+TeTr(item.exp[0],item.exp[1])+'</div>'
     };
   } else {
     var clue='';
@@ -4187,7 +4194,7 @@ function TeHandleElementClick(t){
     }
     TeLastFeedback={
       ok:false,
-      msg:'<strong>'+TeTr("Klepnutí: ","Clicked: ")+t.name+' ('+t.symbol+', Z='+t.number+')</strong><div style="margin-top:4px;">'+clue+'</div>'
+      msg:'<strong>'+TeTr("Klepnutí: ","Clicked: ")+Gr(t)+' ('+t.symbol+', Z='+t.number+')</strong><div style="margin-top:4px;">'+clue+'</div>'
     };
   }
   TeRenderMission();
@@ -4262,7 +4269,12 @@ function TeFind(q){var g=ie("flatGrid"),v=Cs(String(q||"").trim()),m=[];TeHit=0;
 function TeSync2(){var g=ie("flatGrid");if(!g.childElementCount)return;g.querySelectorAll(".is-sel").forEach(function(x){x.classList.remove("is-sel")});if(it){var x=g.querySelector('[data-n="'+it.number+'"]');if(x)x.classList.add("is-sel")}}
 function TeFlat(open){ie("flat").hidden=!open;TeGrid();document.querySelector('[data-tm="flat"]').setAttribute("aria-pressed",String(open));if(open){TeF=1;TeSync2()}}
 function TeRender(m){
+  var prevTm = TeLast;
   TeLast=m||TeLast||"zs";
+  if(prevTm && prevTm !== TeLast){
+    TeLastFeedback = null;
+    TeHintStep = 0;
+  }
   document.querySelectorAll("#teachTabs .teach-tab-btn").forEach(function(b){
     b.classList.toggle("is-active",b.dataset.tm===TeLast);
   });
@@ -4327,5 +4339,5 @@ var btnIn=ie("btnInsideToggle");if(btnIn)btnIn.onclick=toggleInsideOutside;
 function TeInit(){setupMobileErgonomics();ie("teachBtn").onclick=TeOpen;ie("teachToggle").onclick=function(){TeTop(!ie("teachModal").classList.contains("top"))};ie("teachClose").onclick=function(){TeClose(!0)};ie("teachScrim").onclick=function(){TeClose(!0)};ie("flatClose").onclick=function(){TeFlat(false)};document.querySelectorAll("[data-tm]").forEach(function(b){b.onclick=function(){TeRender(b.dataset.tm)}});addEventListener("keydown",function(e){if(e.key==="Escape"&&!ie("teachModal").hidden){TeClose(!0);e.stopPropagation()}});addEventListener("resize",function(){!ie("flat").hidden&&TePlanes()})}
 function TeNote(n){TeE.add(n);var t=TeEl(n);if(t){TeP.add(t.period);TeB.add(t.block)}}
 
-var mb=/android|iphone|ipad|ipod|mobile/i.test(navigator.userAgent),ip=null,iu=/iphone|ipad|ipod/i.test(navigator.userAgent)&&matchMedia("(display-mode: standalone)").matches===!1;function up(){ie("install").hidden=!mb;if(!mb)return;ie("installTitle").textContent=Xe("Nainstalovat na plochu","Install on the home screen"),ie("installNote").textContent=Xe("Aplikace funguje i bez internetu.","The app also works offline."),ie("installBtn").hidden=!ip,ie("installSteps").hidden=!iu;for(let i=0;i<4;i++)ie("installSteps").children[i].firstChild.textContent=Xe(["Otevřete v Safari stránku s aplikací.","Klepněte na tlačítko Sdílet.","Zvolte Přidat na plochu.","Potvrďte Přidat."][i],["Open the app page in Safari.","Tap the Share button.","Choose Add to Home Screen.","Confirm Add."][i])}addEventListener("beforeinstallprompt",e=>{mb&&(e.preventDefault(),ip=e,up())});addEventListener("appinstalled",()=>{ip=null,up()});ie("installBtn").onclick=async()=>{if(ip){let e=ip;ip=null,up();e.prompt();await e.userChoice;return}ie("installSteps").hidden=!ie("installSteps").hidden};up();TeInit();if("serviceWorker" in navigator&&/^https?:$/.test(location.protocol))addEventListener("load",()=>{navigator.serviceWorker.register("sw.js").catch(()=>{})});bx();var kd=new AbortController,Sx=setTimeout(()=>kd.abort(),12e3);fetch("https://cdn.jsdelivr.net/gh/Bowserinator/Periodic-Table-JSON@master/PeriodicTableJSON.json",{signal:kd.signal}).then(i=>{if(!i.ok)throw Error("HTTP "+i.status);return i.json()}).then(i=>{let e=i.elements?.filter(t=>t.number>=1&&t.number<=118);if(!Ad(e))throw Error("Kontrola \xFAplnosti nebo elektron\u016F selhala");en=e,Zc="online datab\xE1ze",Bd(),cl(),it&&Bi(it.number,!1)}).catch(()=>{ie("databaseStatus").textContent=Xe("Online zdroj nen\xED dostupn\xFD. Pou\u017E\xEDv\xE1 se \xFApln\xE1 vlo\u017Een\xE1 datab\xE1ze 118 prvk\u016F.","The online source is unavailable. Using the complete embedded database of 118 elements.")}).finally(()=>{clearTimeout(Sx),ln()});window.Bi=Bi;window.dl=dl;window.TeFlat=TeFlat;window.setSheetSnap=setSheetSnap;window.setFlatBlockFilter=setFlatBlockFilter;window.setViewMode=setViewMode;window.toggleInsideOutside=toggleInsideOutside;})();
+var mb=/android|iphone|ipad|ipod|mobile/i.test(navigator.userAgent),ip=null,iu=/iphone|ipad|ipod/i.test(navigator.userAgent)&&matchMedia("(display-mode: standalone)").matches===!1;function up(){ie("install").hidden=!mb;if(!mb)return;ie("installTitle").textContent=Xe("Nainstalovat na plochu","Install on the home screen"),ie("installNote").textContent=Xe("Aplikace funguje i bez internetu.","The app also works offline."),ie("installBtn").hidden=!ip,ie("installSteps").hidden=!iu;for(let i=0;i<4;i++)ie("installSteps").children[i].firstChild.textContent=Xe(["Otevřete v Safari stránku s aplikací.","Klepněte na tlačítko Sdílet.","Zvolte Přidat na plochu.","Potvrďte Přidat."][i],["Open the app page in Safari.","Tap the Share button.","Choose Add to Home Screen.","Confirm Add."][i])}addEventListener("beforeinstallprompt",e=>{mb&&(e.preventDefault(),ip=e,up())});addEventListener("appinstalled",()=>{ip=null,up()});ie("installBtn").onclick=async()=>{if(ip){let e=ip;ip=null,up();e.prompt();await e.userChoice;return}ie("installSteps").hidden=!ie("installSteps").hidden};up();TeInit();if("serviceWorker" in navigator&&/^https?:$/.test(location.protocol))addEventListener("load",()=>{navigator.serviceWorker.register("sw.js").catch(()=>{})});bx();var kd=new AbortController,Sx=setTimeout(()=>kd.abort(),12e3);fetch("https://cdn.jsdelivr.net/gh/Bowserinator/Periodic-Table-JSON@master/PeriodicTableJSON.json",{signal:kd.signal}).then(i=>{if(!i.ok)throw Error("HTTP "+i.status);return i.json()}).then(i=>{let e=i.elements?.filter(t=>t.number>=1&&t.number<=118);if(!Ad(e))throw Error("Kontrola \xFAplnosti nebo elektron\u016F selhala");en=e,Zc="online datab\xE1ze",Bd(),cl(),it&&Bi(it.number,!1)}).catch(()=>{ie("databaseStatus").textContent=Xe("Online zdroj nen\xED dostupn\xFD. Pou\u017E\xEDv\xE1 se \xFApln\xE1 vlo\u017Een\xE1 datab\xE1ze 118 prvk\u016F.","The online source is unavailable. Using the complete embedded database of 118 elements.")}).finally(()=>{clearTimeout(Sx),ln()});window.Bi=Bi;window.dl=dl;window.TeFlat=TeFlat;window.setSheetSnap=setSheetSnap;window.setFlatBlockFilter=setFlatBlockFilter;window.setViewMode=setViewMode;window.toggleInsideOutside=toggleInsideOutside;window.TeTop=TeTop;window.TeRender=TeRender;window.TeOpen=TeOpen;window.TeClose=TeClose;window.TeHandleElementClick=TeHandleElementClick;})();
 </script></body></html>
