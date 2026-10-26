@@ -383,6 +383,7 @@ THE SOFTWARE.
     window.__elementaNoWebGL=true;
     var fb=document.getElementById("webglFallback");
     if(!fb)return;
+    document.documentElement.lang=wfbCs?"cs":"en";
     document.querySelectorAll("[data-wfb]").forEach(function(el){var t=wfbText[el.dataset.wfb];if(t)el.textContent=L(t[0],t[1])});
     document.getElementById("wfbTable").setAttribute("aria-label",L("Periodická tabulka prvků","Periodic table of elements"));
     document.getElementById("wfbDetailClose").setAttribute("aria-label",L("Zavřít detail","Close details"));
