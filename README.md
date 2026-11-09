@@ -78,7 +78,7 @@ The ellipses are a map of the system, not electron trajectories. Sector sizes an
 
 ### Author
 
-**Luděk Sušický** — biolog, středoškolský a vysokoškolský učitel informatických předmětů
+**Luděk Sušický** — biologist, secondary-school and university teacher of computing subjects
 
 - E-mail: [ludek.susicky@gmail.com](mailto:ludek.susicky@gmail.com)
 - X: [@ludeksusicky](https://x.com/ludeksusicky)
