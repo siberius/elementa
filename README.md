@@ -33,10 +33,7 @@ Interaktivní 3D vizualizace periodické soustavy prvků v jediném HTML souboru
 - **Appearance settings** — colors by periods / blocks / categories, labels, auto-rotation, band opacity, layer spacing, unfolding the planes, front / top / perspective views.
 - **Czech / English** — language switch in the map and settings panel.
 
-### Interface & Element Detail
-
-![ELEMENTA — 3D spatial map of the elements](screenshot.png)
-*Full 3D orbital space view with periodic navigation and element inspection.*
+### Element Detail & Atomic Inspector
 
 ![Element detail — Carbon](carbon.png)
 *Detailed element card with atomic structure, electron configuration, and physical properties.*
@@ -70,6 +67,19 @@ The model and the embedded database **work offline**. If a connection is availab
 
 The ellipses are a map of the system, not electron trajectories. Sector sizes and distances between them are not physical quantities. For the heaviest elements some data are predicted.
 
+### Educational Ecosystem & Related Apps
+
+Why are related educational applications featured here? This project is part of an open didactic ecosystem created by a biology and computer science teacher. All tools in this suite share three foundational pedagogical principles:
+
+- **Zero technical barrier:** Single-file SPAs with no build step, no backend server, and no setup. They run instantly on school computers, tablets, and phones directly in any modern browser, fully functional offline.
+- **Exploratory & visual learning:** Complex spatial and logical structures (such as 3D atomic orbital planes in *Elementa* or algorithm loops in *CodeFlowChart*) are transformed into tangible, interactive models where students learn by direct exploration and immediate feedback.
+- **Data privacy & student safety:** 100% offline-first architecture with local browser storage only — no pupil registration, no passwords, no user tracking, and no external telemetry.
+
+**Explore related classroom tools:**
+- **[CodeFlowChart](https://github.com/siberius/code-flowchart)** ([Online](https://school.vibemaker.cz/codeflowchart/)) — interactive flowchart simulator and algorithmic learning game for secondary school students (servicing ship HEFAISTOS).
+- **[Kvíz](https://school.vibemaker.cz/kviz/)** — lightweight interactive quiz platform for classroom assessments with zero student data tracking.
+- **[Study Prompts for Gemini Notebook](https://github.com/siberius/study-prompts)** — structured master prompt and 15 learning modes for guided self-study from primary source documents.
+
 ### Author
 
 **Luděk Sušický** — biologist, secondary-school and university teacher of computing subjects
@@ -102,10 +112,7 @@ The MIT license covers the app's own code. Three.js and OrbitControls have their
 - **Nastavení vzhledu** — barvy podle period / bloků / kategorií, popisky, automatické otáčení, průsvitnost pásů, rozestup vrstev, rozložení rovin, pohledy zepředu / shora / perspektiva.
 - **Čeština / angličtina** — přepínač jazyka v mapě a nastavení.
 
-### Náhledy rozhraní a karty prvků
-
-![ELEMENTA — 3D prostorová mapa prvků](screenshot.png)
-*Celkový pohled na 3D model se systémem periodických drah a inspekcí prvků.*
+### Karta prvku a atomový detail
 
 ![Detail prvku — Uhlík](carbon.png)
 *Informační karta prvku s atomovou strukturou, elektronovou konfigurací a fyzikálními vlastnostmi.*
@@ -138,6 +145,19 @@ Model i zabudovaná databáze **fungují bez internetu**. Je-li připojení k di
 - **Kurikulum / fakta:** [IUPAC – periodická soustava](https://iupac.org/what-we-do/periodic-table-of-elements/).
 
 Elipsy jsou mapou soustavy, nikoli drahami elektronů. Velikosti sektorů ani vzdálenosti mezi nimi nejsou fyzikální veličinou. U velmi těžkých prvků jsou některé údaje předpovězené.
+
+### Vzdělávací ekosystém a související aplikace
+
+Proč jsou zde uvedeny související výukové aplikace? Projekt je součástí uceleného otevřeného vzdělávacího ekosystému pro výuku přírodních věd a informatiky. Všechny tyto nástroje staví na třech klíčových didaktických pilířích:
+
+- **Nulová technická bariéra:** Čisté jednostránkové aplikace (SPA) v jediném HTML souboru bez nutnosti sestavování (build), bez serverového backendu a bez instalace. Okamžitě fungují ve školních učebnách na libovolném žákovském zařízení (PC, tablet, telefon) a pracují plnohodnotně i bez připojení k internetu.
+- **Názornost a objevování:** Abstraktní témata (3D prostorové uspořádání elektronových bloků v *Elementě* nebo krokování algoritmů v *CodeFlowChart*) převádějí do interaktivních vizuálních modelů, se kterými žáci přímo manipulují a experimentují.
+- **Ochrana dat a soukromí žáků:** 100% offline-first přístup s ukládáním výhradně v lokálním prohlížeči — bez registrace, bez hesel, bez sledovacích skriptů a bez telemetrie.
+
+**Související otevřené výukové projekty:**
+- **[CodeFlowChart](https://github.com/siberius/code-flowchart)** ([Online](https://school.vibemaker.cz/codeflowchart/)) — interaktivní simulátor vývojových diagramů a algoritmizace pro žáky SŠ (servisní loď HEFAISTOS).
+- **[Kvíz](https://school.vibemaker.cz/kviz/)** — bezpečné a svižné interaktivní testování do výuky bez sběru osobních údajů.
+- **[Studijní prompty pro Gemini Notebook](https://github.com/siberius/study-prompts)** — knihovna master promptu a 15 výukových režimů pro řízené samostudium a reflexi z vlastních podkladů.
 
 ### Autor
 
