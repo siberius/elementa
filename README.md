@@ -77,6 +77,7 @@ The ellipses are a map of the system, not electron trajectories. Sector sizes an
 - E-mail: [ludek.susicky@gmail.com](mailto:ludek.susicky@gmail.com)
 - X: [@ludeksusicky](https://x.com/ludeksusicky)
 - LinkedIn: [Luděk Sušický](https://www.linkedin.com/in/ludek-susicky/)
+- GitHub: [@siberius](https://github.com/siberius) — more educational projects and open-source applications
 
 The app is an example of an SPA (Single Page Application) in a single HTML file.
 
@@ -145,6 +146,7 @@ Elipsy jsou mapou soustavy, nikoli drahami elektronů. Velikosti sektorů ani vz
 - E-mail: [ludek.susicky@gmail.com](mailto:ludek.susicky@gmail.com)
 - X: [@ludeksusicky](https://x.com/ludeksusicky)
 - LinkedIn: [Luděk Sušický](https://www.linkedin.com/in/ludek-susicky/)
+- GitHub: [@siberius](https://github.com/siberius) — další vzdělávací projekty a otevřené aplikace
 
 Aplikace je příkladem SPA (Single Page Application) v jediném HTML souboru.
 
