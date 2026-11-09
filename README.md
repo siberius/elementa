@@ -61,12 +61,6 @@ The model and the embedded database **work offline**. If a connection is availab
 | Element detail | click / tap a sector |
 | Default view | home button at the bottom left |
 
-### Related Educational Projects
-
-- ⚡ **[CodeFlowChart HEFAISTOS](https://github.com/siberius/code-flowchart)** — Algorithmic flowchart simulator and training missions ([Live Web App](https://school.vibemaker.cz/codeflowchart/))
-- 🛡️ **[Student Data Protection](https://github.com/siberius/student-data-protection)** — GDPR and safety guide for school applications
-- 🧭 **[Learning Methodologies](https://github.com/siberius/learning-methodologies)** — Didactic framework for designing educational apps with AI
-
 ### Data and Third-Party Licenses
 
 - **Element database:** [Bowserinator / Periodic-Table-JSON](https://github.com/Bowserinator/Periodic-Table-JSON) · [CC BY-SA 3.0](https://creativecommons.org/licenses/by-sa/3.0/).  
@@ -134,12 +128,6 @@ Model i zabudovaná databáze **fungují bez internetu**. Je-li připojení k di
 | Posun | pravé tlačítko / dva prsty |
 | Detail prvku | kliknutí / klepnutí na sektor |
 | Výchozí pohled | tlačítko domů vlevo dole |
-
-### Související vzdělávací aplikace
-
-- ⚡ **[CodeFlowChart HEFAISTOS](https://github.com/siberius/code-flowchart)** — Výukový simulátor vývojových diagramů a algoritmy ([Online aplikace](https://school.vibemaker.cz/codeflowchart/))
-- 🛡️ **[Ochrana dat žáků](https://github.com/siberius/student-data-protection)** — Zabezpečení a GDPR ve školních aplikacích
-- 🧭 **[Vzdělávací metodiky](https://github.com/siberius/learning-methodologies)** — Metodický rámec didaktického návrhu aplikací
 
 ### Data a licence třetích stran
 
