@@ -1,4 +1,4 @@
-# ELEMENTA · Spatial Map of the Elements / Prostorová mapa prvků
+# New Elementa · Spatial Map of the Elements / Prostorová mapa prvků
 
 Interactive 3D visualization of the periodic table in a single HTML file.  
 118 elements · 7 periods · 3 intersecting planes (electron blocks s / p / d / f).
@@ -15,7 +15,7 @@ Interaktivní 3D vizualizace periodické soustavy prvků v jediném HTML souboru
 > 🚀 **Online verze / Live 3D web app:** [https://school.vibemaker.cz/elementa/](https://school.vibemaker.cz/elementa/)  
 > *(Aplikace běží přímo v prohlížeči, funguje offline a nevyžaduje instalaci)*
 
-[![ELEMENTA — 3D Spatial Map of the Elements](elementa.gif)](https://school.vibemaker.cz/elementa/)
+[![New Elementa — 3D Spatial Map of the Elements](elementa.gif)](https://school.vibemaker.cz/elementa/)
 
 ---
 
@@ -72,7 +72,7 @@ The ellipses are a map of the system, not electron trajectories. Sector sizes an
 Why are related educational applications featured here? This project is part of an open didactic ecosystem created by a biology and computer science teacher. All tools in this suite share three foundational pedagogical principles:
 
 - **Zero technical barrier:** Single-file SPAs with no build step, no backend server, and no setup. They run instantly on school computers, tablets, and phones directly in any modern browser, fully functional offline.
-- **Exploratory & visual learning:** Complex spatial and logical structures (such as 3D atomic orbital planes in *Elementa* or algorithm loops in *CodeFlowChart*) are transformed into tangible, interactive models where students learn by direct exploration and immediate feedback.
+- **Exploratory & visual learning:** Complex spatial and logical structures (such as 3D atomic orbital planes in *New Elementa* or algorithm loops in *CodeFlowChart*) are transformed into tangible, interactive models where students learn by direct exploration and immediate feedback.
 - **Data privacy & student safety:** 100% offline-first architecture with local browser storage only — no pupil registration, no passwords, no user tracking, and no external telemetry.
 
 **Explore related classroom tools:**
