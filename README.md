@@ -15,7 +15,7 @@ Interaktivní 3D vizualizace periodické soustavy prvků v jediném HTML souboru
 > 🚀 **Online verze / Live 3D web app:** [https://school.vibemaker.cz/elementa/](https://school.vibemaker.cz/elementa/)  
 > *(Aplikace běží přímo v prohlížeči, funguje offline a nevyžaduje instalaci)*
 
-[![New Elementa — 3D Spatial Map of the Elements](elementa.gif)](https://school.vibemaker.cz/elementa/)
+[![New Elementa — 3D Spatial Map of the Elements](new-elementa.gif)](https://school.vibemaker.cz/elementa/)
 
 ---
 
