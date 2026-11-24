@@ -1,4 +1,4 @@
-# ELEMENTA — Pravidla a konvence
+# New Elementa — Pravidla a konvence
 
 ## Pravidlo pro instalaci na plochu mobilu (PWA), ikony a zákaz duplicit (§7.11)
 Při vytvoření či úpravě funkce instalace aplikace na plochu mobilu je **povinné automaticky navrhnout, vygenerovat a do projektu integrovat kompletní sadu aplikačních ikon i manifest**:
