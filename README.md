@@ -6,16 +6,16 @@ Interactive 3D visualization of the periodic table in a single HTML file.
 Interaktivní 3D vizualizace periodické soustavy prvků v jediném HTML souboru.  
 118 prvků · 7 period · 3 protínající se roviny (elektronové bloky s / p / d / f).
 
-[![Online App](https://img.shields.io/badge/🚀%20Online%20Web%20App-school.vibemaker.cz%2Felementa-blue?style=for-the-badge)](https://school.vibemaker.cz/elementa/)  
-[![Elements](https://img.shields.io/badge/118%20elements-7%20periods-blue?style=flat-square)](https://school.vibemaker.cz/elementa/)
+[![Online App](https://img.shields.io/badge/🚀%20Online%20Web%20App-school.vibemaker.cz%2Fnew-elementa-blue?style=for-the-badge)](https://school.vibemaker.cz/new-elementa/)  
+[![Elements](https://img.shields.io/badge/118%20elements-7%20periods-blue?style=flat-square)](https://school.vibemaker.cz/new-elementa/)
 [![License](https://img.shields.io/badge/license-MIT-green?style=flat-square)](LICENSE)
 [![No build](https://img.shields.io/badge/build-not%20required-lightgrey?style=flat-square)](index.html)
 [![PWA Ready](https://img.shields.io/badge/PWA-offline%20ready-brightgreen?style=flat-square)](sw.js)
 
-> 🚀 **Online verze / Live 3D web app:** [https://school.vibemaker.cz/elementa/](https://school.vibemaker.cz/elementa/)  
+> 🚀 **Online verze / Live 3D web app:** [https://school.vibemaker.cz/new-elementa/](https://school.vibemaker.cz/new-elementa/)  
 > *(Aplikace běží přímo v prohlížeči, funguje offline a nevyžaduje instalaci)*
 
-[![New Elementa — 3D Spatial Map of the Elements](new-elementa.gif)](https://school.vibemaker.cz/elementa/)
+[![New Elementa — 3D Spatial Map of the Elements](new-elementa.gif)](https://school.vibemaker.cz/new-elementa/)
 
 ---
 
@@ -42,7 +42,7 @@ Interaktivní 3D vizualizace periodické soustavy prvků v jediném HTML souboru
 
 No installation, no build:
 
-1. **Online:** Open [https://school.vibemaker.cz/elementa/](https://school.vibemaker.cz/elementa/)
+1. **Online:** Open [https://school.vibemaker.cz/new-elementa/](https://school.vibemaker.cz/new-elementa/)
 2. **Local:** Download or clone the repository and open `index.html` in a modern browser (double-click is enough).
 3. You need WebGL 2 and hardware acceleration.
 
@@ -121,7 +121,7 @@ The MIT license covers the app's own code. Three.js and OrbitControls have their
 
 Nic se neinstaluje, žádný build:
 
-1. **Online:** Otevři [https://school.vibemaker.cz/elementa/](https://school.vibemaker.cz/elementa/)
+1. **Online:** Otevři [https://school.vibemaker.cz/new-elementa/](https://school.vibemaker.cz/new-elementa/)
 2. **Lokálně:** Stáhni nebo naklonuj repozitář a otevři `index.html` v moderním prohlížeči (dvojklik stačí).
 3. Potřebuješ WebGL 2 a hardwarovou akceleraci.
 
